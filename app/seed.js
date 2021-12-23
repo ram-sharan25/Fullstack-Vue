@@ -14,7 +14,7 @@ window.Seed = (function () {
       title: 'Supermajority: The Fantasy Congress League',
       description: 'Earn points when your favorite politicians pass legislation.',
       url: '#',
-      votes: 11,
+      votes: 20,
       avatar: '../public/images/avatars/kristy.png',
       submissionImage: '../public/images/submissions/image-rose.png',
     },
