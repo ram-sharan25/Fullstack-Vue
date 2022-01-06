@@ -2,23 +2,28 @@
     <div id="calendar-entry">
       <div class="calendar-entry-note">
         <input type="text" placeholder="New Event" />
-        <p class="calendar-entry-day">Day of event: <span class="bold">Monday</span></p>
+        <p class="calendar-entry-day">Day of event: <span class="bold">{{titleOfActiveDay}}</span></p>
         <a class="button is-primary is-small is-outlined">Submit</a>
       </div>
     </div>
 </template>
 <script>
-
+import {store} from '../store'
 export default 
 {
-    name:"CalendarEntry"
+    name:"CalendarEntry",
+    computed:{
+      titleofActiveDay(){
+        return store.getActiveDay().fullTitle;
+      }
+    },
 }
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #calendar-entry {
-  background: #FFF;
+  background: rgb(129, 36, 36);
   border: 1px solid #42b883;
   border-radius: 10px;
   max-width: 300px;
