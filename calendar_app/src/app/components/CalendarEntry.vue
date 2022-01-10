@@ -34,7 +34,7 @@ export default
 
 <style lang="scss" scoped>
 #calendar-entry {
-  background: rgb(70, 86, 160);
+  background: rgb(148, 152, 168);
   border: 1px solid #42b883;
   border-radius: 10px;
   max-width: 300px;

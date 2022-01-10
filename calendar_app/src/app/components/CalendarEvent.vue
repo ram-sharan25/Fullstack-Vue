@@ -1,17 +1,25 @@
 <template>
     <div class="day-event" style="getEventBackgroundColor">
         <div>
-            <div class="has-test-centered details">{{event.details}}</div>
-            <div class="has-text-centered icons">
-                <i class=" fa fa-pencil-square edit-icon"></i>
-                <i class="fa-trash-o fa delete-icon"></i>
+            <div v-if="!event.edit">
+                <div class="has-test-centered details">{{event.details}}</div>
+                <div class="has-text-centered icons">
+                    <i class=" fa fa-pencil-square edit-icon" @click="editEvent(day.id,event.details)"></i>
+                    <i class="fa-trash-o fa delete-icon"></i>
+                </div>
+            </div>
+            <div v-if="event.edit">
+                <input type="text" placeholder="event.details"/>
+                <div class="has-text-centered icons">
+                    <i class="fa-check fa"></i>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-import { defineComponent } from '@vue/composition-api'
 
+import {store} from "../store"
 export default {
    name:'CalendarEvent',
    props:['event','day'],
@@ -21,9 +29,14 @@ export default {
            let randomColor=colors[Math.floor(Math.random()*colors.length)];
            return `background-color:${randomColor}`;
        }
+   },
+   methods:{
+       editEvent(dayId,eventDetails){
+           store.editEvent(dayId,eventDetails);
+       }
    }
         
-    }
+}
 </script>
 <style lang ="scss" scoped>
 .day-event {

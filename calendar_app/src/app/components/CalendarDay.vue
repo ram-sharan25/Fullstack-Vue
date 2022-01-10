@@ -1,6 +1,6 @@
 <template>
     <div class="day column" @click="setActiveDay(day.id)">
-        <div class="day-banner has-text-cntered">{{day.abbvTitle}}</div>
+        <div class="day-banner has-text-centered">{{day.abbvTitle}}</div>
         <div class="day-details">
                 <div class="day-number">{{day.id}}</div>
                 <CalendarEvent v-for="(event,index) in day.events"
@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 
 .day {
-    background-color: #cfc2c2;
+    background-color: #797171;
     color: #FFF;
     border-left: 1px solid #8F8F8F;
     border-bottom: 1px solid #8F8F8F;
@@ -44,7 +44,7 @@ export default {
     }
 
     .day-banner {
-      background-color: #e2dada;
+      background-color: #77255e;
       color: #FFF;
       padding: 10px;
       text-transform: uppercase;
@@ -55,6 +55,7 @@ export default {
 
     .day-details {
       padding: 10px;
+     
     }
      &:last-child {
     border-right: 1px solid #8F8F8F;
