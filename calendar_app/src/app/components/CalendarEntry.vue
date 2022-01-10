@@ -2,8 +2,13 @@
     <div id="calendar-entry">
       <div class="calendar-entry-note">
         <input type="text" placeholder="New Event" v-model="inputEntry" />
+     
         <p class="calendar-entry-day">Day of event: <span class="bold">{{titleOfActiveDay}}</span></p>
         <a class="button is-primary is-small is-outlined" @click="submitEvent(inputEntry)">Submit</a>
+         
+         <p style="color:red,font-size=13px" v-if="error">
+           You must type something first
+         </p>
       </div>
     </div>
 </template>
@@ -15,6 +20,7 @@ export default
     data(){
       return{
         inputEntry:'',
+        error:false,
       }
     },
     computed:{
@@ -28,7 +34,7 @@ export default
 
 <style lang="scss" scoped>
 #calendar-entry {
-  background: rgb(129, 36, 36);
+  background: rgb(70, 86, 160);
   border: 1px solid #42b883;
   border-radius: 10px;
   max-width: 300px;
@@ -51,7 +57,7 @@ export default
     }
 
     .calendar-entry-day {
-      color: #42b883;
+      color: #0e6e43;
       font-size: 12px;
       margin-bottom: 10px;
       padding-bottom: 5px;
