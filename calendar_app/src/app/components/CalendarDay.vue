@@ -21,8 +21,9 @@ export default {
         CalendarEvent
     },
     methods:{
-      setActiveDay(dayId){
-      store.setActiveDay(dayId);
+      setActiveDay(dayId)
+      {
+        store.setActiveDay(dayId);
       }
     }
 }
@@ -39,7 +40,7 @@ export default {
     cursor: pointer;
 
     &:hover {
-      background: darken(#6bc6cc,3%);
+      background: darken(#11b1bd,3%);
     }
 
     .day-banner {
