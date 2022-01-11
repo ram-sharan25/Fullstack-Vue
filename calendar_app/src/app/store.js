@@ -11,6 +11,10 @@ export const store = {
             dayObj.id ===dayId ? dayObj.active = true: dayObj.active=false;
         });
     },
+    getEventObj(dayId,eventDetails){
+        const dayObj = store.state.seedData.map(day=>day.id===dayId);
+        return  dayObj.events.find(event=>event.details===eventDetails);
+    },
     submitEvent(eventDetails){
         if(eventDetails==="") return this.error=true;
         const activeDay=this.getActiveDay();
@@ -19,12 +23,9 @@ export const store = {
         this.error=false;
     },
     editEvent(dayId,eventDetails){
-        const dayObj = this.state.seedData.find(
-            day=> day.Id===dayId
-        );
-        const eventObj=dayObj.events.find(
-            event=>event.details===eventDetails
-        );
+        this.resetEditOfAllEvents();
+        const eventObj= this.getEventObj(dayId,eventDetails);
+       
         eventObj.edit=true;
     },
     resetEditOfAllEvents(){
@@ -33,5 +34,10 @@ export const store = {
                 event.edit=false;
             });
         });
+    },
+    updateEvent(dayId,orginalEventDetails,updatedEventDetails){
+       const eventObj = this.getEventObj(dayId,orginalEventDetails);
+        eventObj.details=updatedEventDetails;
+        eventObj.edit=false;
     }
 }
